@@ -1,10 +1,9 @@
-<p style="color: green"><%= notice %></p>
+<div class="w-screen h-screen flex flex-col items-center mt-40">
+  <p style="color: green"><%= notice %></p>
 
-<%= render @notice %>
+  <%= render @notice %>
 
-<div>
-  <%= link_to "Edit this notice", edit_notice_path(@notice) %> |
-  <%= link_to "Back to notices", notices_path %>
-
-  <%= button_to "Destroy this notice", @notice, method: :delete %>
+  <div class="mt-12">
+    <%= link_to "Voltar", notices_path, :class => "rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
+  </div>
 </div>
