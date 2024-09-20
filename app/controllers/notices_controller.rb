@@ -1,5 +1,5 @@
 class NoticesController < ApplicationController
-  before_action :set_notice, only: %i[ show edit update destroy ]
+  before_action :set_notice, only: %i[show edit update destroy]
 
   # GET /notices or /notices.json
   def index
@@ -7,8 +7,7 @@ class NoticesController < ApplicationController
   end
 
   # GET /notices/1 or /notices/1.json
-  def show
-  end
+  def show; end
 
   # GET /notices/new
   def new
@@ -16,8 +15,7 @@ class NoticesController < ApplicationController
   end
 
   # GET /notices/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /notices or /notices.json
   def create
@@ -25,7 +23,7 @@ class NoticesController < ApplicationController
 
     respond_to do |format|
       if @notice.save
-        format.html { redirect_to @notice, notice: "Notice was successfully created." }
+        format.html { redirect_to @notice, notice: 'Notice was successfully created.' }
         format.json { render :show, status: :created, location: @notice }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class NoticesController < ApplicationController
   def update
     respond_to do |format|
       if @notice.update(notice_params)
-        format.html { redirect_to @notice, notice: "Notice was successfully updated." }
+        format.html { redirect_to @notice, notice: 'Notice was successfully updated.' }
         format.json { render :show, status: :ok, location: @notice }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +50,20 @@ class NoticesController < ApplicationController
     @notice.destroy!
 
     respond_to do |format|
-      format.html { redirect_to notices_path, status: :see_other, notice: "Notice was successfully destroyed." }
+      format.html { redirect_to notices_path, status: :see_other, notice: 'Notice was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_notice
-      @notice = Notice.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def notice_params
-      params.require(:notice).permit(:title, :content)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_notice
+    @notice = Notice.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def notice_params
+    params.require(:notice).permit(:title, :content)
+  end
 end
