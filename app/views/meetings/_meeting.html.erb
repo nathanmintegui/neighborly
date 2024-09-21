@@ -1,27 +1,17 @@
-<div id="<%= dom_id meeting %>">
-  <p>
-    <strong>Title:</strong>
-    <%= meeting.title %>
-  </p>
+<div id="<%= dom_id meeting %>" class="border-2 rounded-xl p-5">
+  <h1 class="text-3xl font-bold mb-5"><%= meeting.title.upcase %></h1>
+
+  <p class="mb-5"><%= meeting.content %></p>
 
   <p>
-    <strong>Content:</strong>
-    <%= meeting.content %>
+    <strong>Dia:</strong>
+    <%= meeting.day.strftime("%d/%m") %>
   </p>
 
-  <p>
-    <strong>Day:</strong>
-    <%= meeting.day %>
+  <p class="mb-5">
+    <strong>Horário:</strong>
+    <%= meeting.begin.strftime("%H:%M") %> até <%= meeting.end.strftime("%H:%M") %> 
   </p>
 
-  <p>
-    <strong>Begin:</strong>
-    <%= meeting.begin %>
-  </p>
-
-  <p>
-    <strong>End:</strong>
-    <%= meeting.end %>
-  </p>
-
+  <p>Postado em: <strong><%= meeting.created_at.strftime("%d/%m/%Y") %> às <%= meeting.created_at.strftime("%H:%M") %></strong></p>
 </div>
