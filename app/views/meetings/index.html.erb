@@ -39,8 +39,10 @@
       <% @meetings.each do |meeting| %>
         <div class="border-2 p-5 rounded-xl mb-5 hover:bg-gray-200">
           <a href="/meetings/<%= meeting.id %>">
-            <h1 class="font-bold pb-5"><%= meeting.title.upcase %></h1>
+            <h1 class="font-bold pb-2"><%= meeting.title.upcase %></h1>
+            <p class="italic text-sm pb-5"><%= meeting.created_by %></p>
             <p><%= meeting.content %></p>
+            <p class="text-right">Postado em: <strong><%= meeting.created_at.strftime("%d/%m/%Y") %> às <%= meeting.created_at.strftime("%H:%M") %></strong></p>
           </a>
        </div>
      <% end %>
