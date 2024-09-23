@@ -35,15 +35,27 @@
     </div>
   </header>
   <main>
-    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-      <% @bookings.each do |booking| %>
-        <div class="border-2 p-5 rounded-xl mb-5 hover:bg-gray-200">
-          <a href="/notices/<%= booking.id %>">
-            <h1 class="font-bold pb-5"><%= booking.title.upcase %></h1>
-            <p><%= booking.content %></p>
-          </a>
-       </div>
-     <% end %>
+    <div class="flex justify-center mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+    <table class="w-2/3">
+      <thead>
+          <tr class="flex justify-between px-3">
+            <th class="text-xl">Lugar</th>
+            <th class="text-xl">Solicitante</th>
+            <th class="text-xl">Data</th>
+            <th class="text-xl">Hora</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @bookings.each do |b| %>
+          <tr class="flex justify-between px-3 border-b p-3 hover:bg-zinc-50">
+            <td><%= b[:place] %></td>
+            <td><%= b[:requester] %></td>
+            <td><%= b[:day].strftime("%m/%d") %></td>
+            <td><%= b[:begin].strftime("%H:%M") %> até <%= b[:end].strftime("%H:%M") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
      <%= link_to "+", new_booking_path, :class => "flex justify-center border rounded-full p-5 w-16 font-semibold
         fixed bottom-10 right-20 bg-blue-500 hover:bg-blue-400" %>
     </div>
