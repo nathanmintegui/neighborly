@@ -41,6 +41,7 @@
           <a href="/notices/<%= notice.id %>">
             <h1 class="font-bold pb-5"><%= notice.title.upcase %></h1>
             <p><%= notice.content %></p>
+            <p class="text-right">Postado em: <strong><%= notice.created_at.strftime("%d/%m/%Y") %> às <%= notice.created_at.strftime("%H:%M") %></strong></p>
           </a>
        </div>
      <% end %>
